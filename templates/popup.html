@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>YouTube Video Summary</title>
+    <link rel="stylesheet" href="/extension/static/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app-container">
+        <div id="sidebar">
+            <div id="logo-container">
+                <div class="logo-icon">
+                    <i class="ri-youtube-line"></i>
+                </div>
+                <h1>YT Summary</h1>
+            </div>
+            <div class="sidebar-menu">
+                <div id="transcript-btn" class="sidebar-item active">
+                    <i class="ri-file-text-line"></i>
+                    <span>Transcript</span>
+                </div>
+                <div id="summarize-btn" class="sidebar-item">
+                    <i class="ri-file-list-3-line"></i>
+                    <span>Summary</span>
+                </div>
+                <div id="notes-btn" class="sidebar-item">
+                    <i class="ri-book-read-line"></i>
+                    <span>Study Notes</span>
+                </div>
+                <div id="quiz-btn" class="sidebar-item">
+                    <i class="ri-question-answer-line"></i>
+                    <span>Quiz</span>
+                </div>
+
+                <div class="sidebar-divider"></div>
+
+                <div id="language-btn" class="sidebar-item">
+                    <i class="ri-translate-2"></i>
+                    <span>Translate</span>
+                </div>
+
+                <div class="sidebar-divider"></div>
+
+                <div id="custom-prompt-btn" class="sidebar-item">
+                    <i class="ri-magic-line"></i>
+                    <span>Custom</span>
+                </div>
+            </div>
+        </div>
+        <div id="main-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 17px 24px;">
+                <h1 id="heading" style="margin: 0;">YouTube Summary</h1>
+                <div style="position: relative;">
+                    <button id="copy-btn" class="action-btn" title="Copy to clipboard">
+                        <i class="ri-clipboard-line"></i>
+                    </button>
+                    <div id="copy-feedback" class="copy-success"
+                        style="display: none; position: absolute; bottom: -40px; right: 0; background-color: var(--accent-primary); color: white; padding: 4px 8px; border-radius: 6px; font-size: 12px; z-index: 999999;">
+                        Copied!
+                    </div>
+                </div>
+            </div>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Processing video...</p>
+            </div>
+
+            <div id="custom-prompt-container" class="hidden">
+                <textarea id="custom-prompt-input"
+                    placeholder="Enter your custom prompt here... (e.g., 'Explain this video as if I'm 5 years old' or 'List all technical terms mentioned in this video')"></textarea>
+                <div class="prompt-actions">
+                    <button id="submit-prompt-btn" class="action-btn primary-btn">
+                        <i class="ri-send-plane-fill"></i>
+                        <span>Submit</span>
+                    </button>
+                    <button id="cancel-prompt-btn" class="action-btn secondary-btn">
+                        <i class="ri-close-line"></i>
+                        <span>Cancel</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="response-container">
+                <div id="response"></div>
+            </div>
+            <div class="footer">Powered by Gemini AI</div>
+        </div>
+    </div>
+    <div class="menu-backdrop"></div>
+    <div class="translation-menu">
+        <div class="translation-menu-header">Select Language</div>
+        <div class="translation-options">
+            <div class="translation-option" data-lang="hindi">
+                <div class="translation-option-icon">हि</div>
+                <div class="translation-option-text">
+                    <div class="translation-option-name">Hindi</div>
+                    <div class="translation-option-native">हिन्दी</div>
+                </div>
+            </div>
+            <div class="translation-option" data-lang="spanish">
+                <div class="translation-option-icon">Es</div>
+                <div class="translation-option-text">
+                    <div class="translation-option-name">Spanish</div>
+                    <div class="translation-option-native">Español</div>
+                </div>
+            </div>
+            <div class="translation-option" data-lang="french">
+                <div class="translation-option-icon">Fr</div>
+                <div class="translation-option-text">
+                    <div class="translation-option-name">French</div>
+                    <div class="translation-option-native">Français</div>
+                </div>
+            </div>
+            <div class="translation-option" data-lang="german">
+                <div class="translation-option-icon">De</div>
+                <div class="translation-option-text">
+                    <div class="translation-option-name">German</div>
+                    <div class="translation-option-native">Deutsch</div>
+                </div>
+            </div>
+            <div class="translation-option" data-lang="marathi">
+                <div class="translation-option-icon">मर</div>
+                <div class="translation-option-text">
+                    <div class="translation-option-name">Marathi</div>
+                    <div class="translation-option-native">मराठी</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../extension/static/js/popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Video Summarizer",
+  "version": "1.0",
+  "description": "Summarize YouTube videos and translate to Hindi and Marathi using Gemini API",
+  "icons": {
+    "16": "extension/static/icons/128.png",
+    "48": "extension/static/icons/128.png",
+    "128": "extension/static/icons/128.png"
+  },
+  "action": {
+    "default_popup": "templates/popup.html",
+    "default_icon": "extension/static/icons/128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*",
+    "*://*.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "extension/static/js/content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "extension/static/css/*",
+        "extension/static/icons/*",
+        "extension/static/js/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
