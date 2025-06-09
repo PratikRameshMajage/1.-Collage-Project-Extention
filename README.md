@@ -70,10 +70,6 @@ This extension:
 - **Error messages**: Check your internet connection
 - **Extension disabled**: Make sure you're on a YouTube video page
 
-## License
-
-[MIT License](LICENSE)
-
 ## Credits
 
 - Icons by [Remix Icon](https://remixicon.com/)
